@@ -1,4 +1,5 @@
 import easyocr
+from numberplate_detection import*
 
 # Initialize the EasyOCR reader
 reader = easyocr.Reader(['en'])
