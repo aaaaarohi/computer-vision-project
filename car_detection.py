@@ -6,6 +6,14 @@ car_classifier = cv2.CascadeClassifier('haarcascade_car.xml')
 # Initiate video capture for video file, add file or footage in the parameters
 cap = cv2.VideoCapture('')
 
+def car_detected(frame):
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  # Convert to grayscale
+    cars = car_classifier.detectMultiScale(gray, 1.4, 2)  # Detect cars
+
+    if len(cars) > 0:  # If at least one car is detected
+        return True
+    return False
+    
 # Loop once video is successfully loaded
 while cap.isOpened():
     
