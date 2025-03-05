@@ -9,7 +9,7 @@ cap.set(4, 480) #height
 
 min_area = 500
 
-while True:
+def is_detected(frame):
     success, img = cap.read()
 
     plate_cascade = cv2.CascadeClassifier(harcascade)
@@ -26,6 +26,9 @@ while True:
            #cropping the number plate part and saving the plate area
             img_roi = img[y: y+h, x:x+w]
             #cv2.imshow("ROI", img_roi)
+            return True
+        else:
+            return False
 
 
     
